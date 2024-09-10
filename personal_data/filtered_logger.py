@@ -13,6 +13,7 @@ from typing import List
 
 PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 
+
 def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
 
@@ -45,7 +46,6 @@ class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class
     """
 
-
     REDACTION = "***"
     FORMAT = "[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s"
     SEPARATOR = ";"
@@ -60,8 +60,9 @@ class RedactingFormatter(logging.Formatter):
         return filter_datum(self.fields, self.REDACTION,
                             super().format(record), self.SEPARATOR)
 
+
 def get_db() -> mysql.connector.connection.MySQLConnection:
-    '''Establish a connection to the database and return a connection object.'''
+    '''Establish a connection to the database'''
 
     user = os.getenv("PERSONAL_DATA_DB_USERNAME", "root")
     password = os.getenv("PERSONAL_DATA_DB_PASSWORD", "")
@@ -77,6 +78,8 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         host=host,
         database=database
     )
+
+    
 def main() -> None:
     ''' main function'''
 
@@ -97,8 +100,10 @@ def main() -> None:
         filtered_message = filter_datum(fields, '***', message, '; ')
         logger.info(filtered_message)
 
+
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
 
