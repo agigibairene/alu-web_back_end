@@ -79,13 +79,11 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         database=database
     )
 
-    
+
 def main() -> None:
     ''' main function'''
 
-    logging.basicConfig(format='%(asctime)s %(name)s %(levelname)s %(message)s',
-                        datefmt='%Y-%m-%d %H:%M:%S',
-                        level=logging.INFO)
+    logging.basicConfig(format='%(asctime)s %(name)s %(levelname)s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',level=logging.INFO)
     logger = logging.getLogger('user_data')
 
     fields = ['name', 'email', 'phone', 'ssn', 'password']
@@ -103,7 +101,6 @@ def main() -> None:
 
     cursor.close()
     db.close()
-
 
 if __name__ == "__main__":
 
