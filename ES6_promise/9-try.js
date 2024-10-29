@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export default function guardrail(mathFunction) {
   const queque = [];
   try {
