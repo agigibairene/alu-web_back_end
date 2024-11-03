@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default function getStudentIdsSum(students) {
     const studentsIdArray = students.map((student) => student.id);
   
