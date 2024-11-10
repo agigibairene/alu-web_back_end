@@ -6,4 +6,4 @@ countStudents('database.csv')
   })
   .catch((error) => {
     console.log(error);
-});
+  });
